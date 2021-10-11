@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { fetchCurrencies, fetchRates } from '../actions';
+import { InputField, SelectField } from '.';
 
 const INITIAL_STATE = {
   value: '',
@@ -46,43 +47,44 @@ class ExpenseForm extends React.Component {
     if (!currencies) return <p>Loading...</p>;
     return (
       <form className="flex flex-col bg-blue-900 text-white p-2">
-        <label htmlFor="value">
-          Valor
-          <input
-            type="number"
-            id="value"
-            value={ value }
-            onChange={ this.handleChange }
-          />
-        </label>
-        <label htmlFor="description">
-          Descrição
-          <input
-            type="text"
-            id="description"
-            value={ description }
-            onChange={ this.handleChange }
-          />
-        </label>
-        <label htmlFor="currency">
-          Moeda
-          <select id="currency" value={ currency } onChange={ this.handleChange }>
-            { currencies.map((curr) => <option key={ curr }>{ curr }</option>)}
-          </select>
-        </label>
-        <label htmlFor="method">
-          Método de Pagamento
-          <select id="method" value={ method } onChange={ this.handleChange }>
-            { methods.map((item, index) => <option key={ index }>{ item }</option>) }
-          </select>
-        </label>
-        <label htmlFor="tag">
-          Tag
-          <select id="tag" value={ tag } onChange={ this.handleChange }>
-            { tagArray.map((item, index) => <option key={ index }>{ item }</option>)}
-          </select>
-        </label>
-        <button type="button" onClick={ this.updateRates }>Adicionar despesa</button>
+        <InputField
+          field="value"
+          type="number"
+          value={ value }
+          handleChange={ this.handleChange }
+        />
+        <InputField
+          field="description"
+          type="text"
+          value={ description }
+          handleChange={ this.handleChange } 
+        />
+        <SelectField
+          field="currency"
+          value={ currency }
+          handleChange={ this.handleChange }
+          array={ currencies }
+        />
+        <SelectField
+          field="method"
+          value={ method }
+          handleChange={ this.handleChange }
+          array={ methods }
+        />
+        <SelectField
+          field="tag"
+          value={ tag }
+          handleChange={ this.handleChange }
+          array={ tagArray }
+        />
+        <button
+          className="my-4 w-3/6 bg-white mx-auto rounded font-bold hover:border-blue-600
+            border-2 text-black"
+          type="button"
+          onClick={ this.updateRates }
+        >
+          Adicionar despesa
+        </button>
       </form>
     );
   }

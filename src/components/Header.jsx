@@ -29,7 +29,7 @@ class Header extends React.Component {
         <hr/>
         <div className="text-center mb-2" data-testid="email-field">{ emailInput }</div>
         <div className="text-lg" data-testid="total-field">
-          <span className="mr-1">Despesas:</span>
+          <span className="mr-1">Expenses:</span>
           { expenseValue.toFixed(2) }
           <span className="ml-1" data-testid="header-currency-field">
             { currency }
