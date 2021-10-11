@@ -46,7 +46,8 @@ class ExpenseForm extends React.Component {
     const { value, description, currency, method, tag } = this.state;
     if (!currencies) return <p>Loading...</p>;
     return (
-      <form className="flex flex-col bg-blue-900 text-white p-2">
+      <form className="flex flex-col bg-blue-900 text-white p-2 md:flex-row md:justify-around
+        md:flex-wrap">
         <InputField
           field="value"
           type="number"
@@ -79,7 +80,7 @@ class ExpenseForm extends React.Component {
         />
         <button
           className="my-4 w-3/6 bg-white mx-auto rounded font-bold hover:border-blue-600
-            border-2 text-black"
+            border-2 text-black md:my-2 md:w-1/6"
           type="button"
           onClick={ this.updateRates }
         >

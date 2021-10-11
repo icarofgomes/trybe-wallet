@@ -5,7 +5,7 @@ class SelectField extends Component {
     const { field, value, handleChange, array } = this.props;
     return (
       <div className="flex justify-between mr-2">
-        <div className="capitalize font-bold">{ field }</div>
+        <div className="capitalize font-bold md:mr-2">{ field }</div>
         <div className="w-36">
           <label
             className="flex justify-end"

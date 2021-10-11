@@ -24,7 +24,7 @@ class Header extends React.Component {
     const expenseValue = this.expensesSum();
     const { currency } = this.state;
     return (
-      <div className="bg-blue-900 text-white p-2 rounded">
+      <div className="bg-blue-900 text-white p-2">
         <h1 className="text-center text-2xl font-bold">TRYBE WALLET</h1>
         <hr/>
         <div className="text-center mb-2" data-testid="email-field">{ emailInput }</div>
@@ -35,6 +35,7 @@ class Header extends React.Component {
             { currency }
           </span>
         </div>
+        <hr className="mt-2 hidden md:block"/>
       </div>
     );
   }
