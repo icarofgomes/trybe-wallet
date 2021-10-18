@@ -56,6 +56,7 @@ class Login extends React.Component {
                   name="email"
                   id="input-email"
                   data-testid="email-input"
+                  placeholder="Digite um e-mail válido"
                   onChange={ this.handleChange }
                   value={ email }
                 />
@@ -68,10 +69,11 @@ class Login extends React.Component {
               <label htmlFor="input-password">
               <input
                 className="rounded-sm"
-                type="text"
+                type="password"
                 name="password"
                 id="input-password"
                 data-testid="password-input"
+                placeholder="Senha maior que 6 caracteres"
                 onChange={ this.handleChange }
                 value={ password }
               />
@@ -79,7 +81,8 @@ class Login extends React.Component {
             </div>
           </div>
           <button
-            className="my-4 w-2/6 bg-white mx-auto rounded font-bold hover:border-blue-600 border-2"
+            className="my-4 w-2/6 bg-white mx-auto rounded font-bold hover:border-blue-600 border-2
+              disabled:bg-gray-400"
             type="button"
             disabled={ !this.isValid() }
             onClick={ this.handleClick }
